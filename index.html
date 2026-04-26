@@ -1,663 +1,599 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ali Kashani's CV</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
-    <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
-    <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-    <noscript>
-      <style type="text/css">
-        [data-aos] {
-          opacity: 1 !important;
-          transform: translate(0) scale(1) !important;
-        }
-      </style>
-    </noscript>
-    <style>
-      .cc-experience-header, .cc-education-header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%; /* Cover the full height */
-        background-color: #f8f9fa;
-        border-right: 5px solid #007144; /* Green bar */
-        text-align: center;
-      }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      .cc-experience-header img, .cc-education-header img {
-        width: 50%; /* Adjust the logo size */
-        height: auto;
-      }
+  <!-- TODO: Replace meta description with personalized text -->
+  <title>Ali Kashani · Data Analyst</title>
+  <meta name="description" content="Ali Kashani — Data Analyst working in analytics, visualization, and automation." />
+  <meta name="author" content="Ali Kashani" />
 
-      .cc-experience .row, .cc-education .row {
-        display: flex;
-        align-items: stretch;
-      }
+  <!--
+    GitHub Pages archive setup
+    --------------------------
+    The old portfolio still lives at /archive/ — it has not been modified.
+    This file (the new portfolio) is the new root entry point of
+    https://alikashani.github.io.
+    Old site is reachable at: https://alikashani.github.io/archive/
+  -->
 
-      .col-md-3 {
-        display: flex;
-        align-items: center; /* Vertically center the logo */
-        background-color: #007144; /* Green background */
-        padding: 0;
-        border-right: 5px solid #007144; /* Ensures the green bar is consistent across the height */
-      }
+  <!-- Google Fonts: Inter for body, DM Serif Display for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-      .col-md-9 {
-        padding-left: 30px;
-        background-color: #ffffff; /* White background */
-      }
+  <!-- Tableau Embed Web Component (loaded once for all viz embeds below) -->
+  <script
+    type="module"
+    src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"
+  ></script>
 
-      .cc-reference .row {
-        margin-bottom: 30px;
-      }
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-      .cc-reference .card {
-        background: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border-radius: 10px;
-      }
+<body>
+  <!-- ============================================================ -->
+  <!-- STICKY NAVIGATION                                              -->
+  <!-- ============================================================ -->
+  <nav class="nav" id="nav" aria-label="Primary">
+    <div class="nav__inner">
+      <a href="#home" class="nav__logo">Ali Kashani</a>
 
-      .cc-reference img {
-        width: 150px;
-        height: auto;
-        margin-bottom: 15px;
-      }
+      <button
+        class="nav__toggle"
+        id="navToggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        <span></span><span></span><span></span>
+      </button>
 
-      .cc-reference .col-lg-6 {
-        margin-bottom: 20px;
-      }
-      
-      .tab-content .row {
-        justify-content: center;
-      }
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#home" class="nav__link">Home</a></li>
+        <li><a href="#analytics" class="nav__link">Analytics</a></li>
+        <li><a href="#visualizations" class="nav__link">Visualizations</a></li>
+        <li><a href="#automation" class="nav__link">Automation</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-      .cc-porfolio-image {
-        margin-bottom: 30px;
-      }
+  <main>
+    <!-- ============================================================ -->
+    <!-- HERO                                                          -->
+    <!-- ============================================================ -->
+    <section id="home" class="hero reveal" aria-labelledby="hero-heading">
+      <div class="hero__bg" aria-hidden="true"></div>
 
-      .cc-porfolio-image img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 10px;
-      }
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">Data Analyst · Visualization · Automation</p>
 
-      .cc-porfolio-image figcaption {
-        text-align: center;
-        margin-top: 15px;
-      }
+        <h1 id="hero-heading" class="hero__title">
+          Hi, I'm <span class="hero__name">Ali</span>.
+        </h1>
 
-      /* Certificates Section Styling similar to Honors */
-      .cc-certificates .card {
-        background: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        margin-bottom: 30px;
-      }
+        <!-- TODO: Replace bio with your real elevator pitch -->
+        <p class="hero__bio">
+          I turn messy data into clear stories and reliable systems. I work
+          across analytics, dashboards, and automation — helping teams see
+          what's happening, understand why, and act faster. Currently focused
+          on building tools that make data work feel effortless.
+        </p>
 
-      .cc-certificates img {
-        width: 150px;
-        height: auto;
-        margin-bottom: 15px;
-      }
+        <div class="hero__cta">
+          <a href="#analytics" class="btn btn--primary">View My Work</a>
+          <a href="#contact" class="btn btn--outline">Get in Touch</a>
+        </div>
+      </div>
 
-      .cc-certificates .h5 {
-        font-size: 1.25rem;
-        margin-top: 15px;
-        margin-bottom: 10px;
-      }
+      <a href="#analytics" class="hero__scroll" aria-label="Scroll to projects">
+        <span class="hero__chevron"></span>
+      </a>
+    </section>
 
-      .cc-certificates p {
-        color: #666;
-      }
-      .card .card-body + .card-body {
-        margin-top: -30px; /* Negative margin to pull elements closer together */
-      }
-    </style>
-  </head>
-  <body id="top">
-    <header>
-      <div class="profile-page sidebar-collapse">
-        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
-          <div class="container">
-            <div class="navbar-translate">
-              <a class="navbar-brand" href="#" rel="tooltip">Ali Kashani</a>
-              <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-bar bar1"></span>
-                <span class="navbar-toggler-bar bar2"></span>
-                <span class="navbar-toggler-bar bar3"></span>
-              </button>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#education">Education</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#combined">Pictures</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#publications">Publications</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#certificates">Certificates</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#awards">Awards</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#reference">References</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
+    <!-- ============================================================ -->
+    <!-- ANALYTICS PROJECTS                                            -->
+    <!-- ============================================================ -->
+    <section id="analytics" class="section reveal" aria-labelledby="analytics-heading">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="analytics-heading" class="section__title">Analytics Projects</h2>
+          <p class="section__subtitle">
+            A collection of data analysis work — from EDA to predictive modeling
+          </p>
+        </header>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" role="tablist" aria-label="Analytics filters">
+          <button class="filter is-active" data-filter="all" data-target="analytics-grid">All</button>
+          <button class="filter" data-filter="python" data-target="analytics-grid">Python</button>
+          <button class="filter" data-filter="sql" data-target="analytics-grid">SQL</button>
+          <button class="filter" data-filter="ml" data-target="analytics-grid">Machine Learning</button>
+          <button class="filter" data-filter="eda" data-target="analytics-grid">EDA</button>
+        </div>
+
+        <!-- Project grid -->
+        <div class="card-grid" id="analytics-grid">
+          <!-- TODO: Replace with real project (Card 1) -->
+          <article class="card" data-tags="python ml" style="--card-accent: var(--accent-1);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">Customer Churn Prediction</h3>
+              <p class="card__desc">
+                Built a logistic regression and random forest pipeline to flag
+                at-risk customers. Surfaced top retention drivers via SHAP.
+              </p>
+              <p class="card__more" hidden>
+                Engineered ~40 features from billing and engagement data,
+                tuned with cross-validation, and exposed the scoring service
+                behind a simple Flask API.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">scikit-learn</li>
+                <li class="tag">Pandas</li>
               </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <div class="page-content">
-      <div>
-        <div class="profile-page">
-          <div class="wrapper">
-            <div class="page-header page-header-small" filter-color="green">
-              <div class="page-header-image" data-parallax="true" style="background-image: url('images/ethglobal.jpg')"></div>
-              <div class="container">
-                <div class="content-center">
-                  <div class="cc-profile-image"><a href="#"><img src="images/profile.JPG" alt="Ali Kashani's Profile Picture"/></a></div>
-                  <div class="h2 title">Ali Kashani</div>
-                  <p class="category text-white">Data Analyst at Motorola Solutions</p>
-                  <a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Contact Me</a>
-                </div>
-              </div>
-              <div class="section">
-                <div class="container">
-                  <div class="button-container">
-                    <a class="btn btn-default btn-round btn-lg btn-icon" href="https://www.linkedin.com/in/seyed-ali-kashani/" rel="tooltip" title="Follow me on LinkedIn">
-                      <i class="fa fa-linkedin"></i>
-                    </a>
-                    <a class="btn btn-default btn-round btn-lg btn-icon" href="https://github.com/alikashani97" rel="tooltip" title="Follow me on GitHub">
-                      <i class="fa fa-github"></i>
-                    </a>
-                    <a class="btn btn-default btn-round btn-lg btn-icon" href="mailto:alikashani9775@gmail.com" rel="tooltip" title="Email me">
-                      <i class="fa fa-envelope"></i>
-                    </a>
-                  </div>
-                </div>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <!-- TODO: Replace with real GitHub URL -->
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="section" id="about">
-          <div class="container">
-            <div class="card" data-aos="fade-up" data-aos-offset="10">
-              <div class="row">
-                <div class="col-lg-6 col-md-12">
-                  <div class="card-body">
-                    <div class="h4 mt-0 title">About</div>
-                    <p>Hello! I am Ali Kashani, a data analyst at Motorola Solutions Inc.</p>
-                    <p>I hold a Master's degree in Management Sciences and Engineering from the University of Waterloo.</p>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                  <div class="card-body">
-                    <div class="h4 mt-0 title">Basic Information</div>
-                    <div class="row">
-                      <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-                      <div class="col-sm-8">alikashani9775@gmail.com</div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">Location:</strong></div>
-                      <div class="col-sm-8">Toronto, Canada</div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">LinkedIn:</strong></div>
-                      <div class="col-sm-8"><a href="https://www.linkedin.com/in/seyed-ali-kashani/">www.linkedin.com/in/seyed-ali-kashani</a></div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-sm-4"><strong class="text-uppercase">GitHub:</strong></div>
-                      <div class="col-sm-8"><a href="https://github.com/alikashani97">github.com/alikashani97</a></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- <div class="section" id="experience">
-          <div class="container cc-experience">
-            <div class="h4 text-center mb-4 title">Experience</div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <img src="images/microsoft-logo.png" alt="Microsoft Logo">
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Software Engineer II</div>
-                    <p>Nov 2024 - Present | Microsoft | Vancouver, Canada</p>
-                    <p>AI Frameworks: Developing and optimizing software for large-scale AI model training and inference on the Microsoft AI accelerators using C/C++ and Python.</p>
-                    <p>Collaboration: Working closely with cross-functional teams, including hardware and ML, to create efficient AI solutions across diverse platforms.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <img src="images/huawei-logo.png" alt="Huawei Logo">
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Senior Research Engineer B</div>
-                    <p>Sep 2023 - Nov 2024 | Huawei Technologies Canada Co., Ltd. | Vancouver, Canada</p>
-                    <p>AI/ML: Designed and implemented customized kernels for Ascend-NPU to optimize LLM inference on vLLM.</p>
-                    <p>Database: Contributed to research initiatives and early-stage engineering of an in-memory OLAP engine for cloud services.</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="card">
-              <div class="row">
-                <div class="col-md-3" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <img src="images/waterloo-logo.png" alt="University of Waterloo Logo">
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Graduate Research Assistant</div>
-                    <p>Sep 2021 - Sep 2023 | University of Waterloo | Waterloo, Canada</p>
-                    <p>Research experience on shared memory algorithms.</p>
-                    <p>Designed and implemented snapshotting mechanisms for persistent memory-mapped files and detectable objects for persistent memory.</p>
-                  </div>
-                  <div class="card-body">
-                    <div class="h5">Graduate Teaching Assistant</div>
-                    <p>Jan 2022 - Apr 2023 | University of Waterloo | Waterloo, Canada</p>
-                    <p>Helped in holding courses in Algorithm Design, Database Systems, Systems Programming, and Data Abstraction.</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="card">
-              <div class="row">
-                <div class="col-md-3" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <img src="images/huawei-logo.png" alt="Huawei Logo">
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Blockchain Researcher Intern</div>
-                    <p>May 2022 - Aug 2022 | Huawei Technologies Canada Co., Ltd. | Waterloo, Canada</p>
-                    <p>Worked on a collaborative project called Towards a High-velocity Permissioned Blockchain.</p>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <!-- <div class="card">
-              <div class="row">
-                <div class="col-md-3" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-experience-header">
-                    <img src="images/ut-logo.png" alt="University of Tehran Logo">
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Undergraduate Teaching Assistant</div>
-                    <p>Oct 2018 - Jul 2021 | University of Tehran | Tehran, Iran</p>
-                    <p>Assisted in more than 15 courses such as Advanced Programming and Operating Systems.</p>
-                  </div>
-                  <div class="card-body">
-                    <div class="h5">Undergraduate Research Assistant</div>
-                    <p>Oct 2019 - Feb 2021 | University of Tehran Science & Technology Park | Tehran, Iran</p>
-                    <p>Analyzed social network behavior in the Ethereum network using graph analysis.</p>
-                  </div>
-                  <div class="card-body">
-                    <div class="h5">Machine Learning Intern</div>
-                    <p>Jul 2019 - Sep 2019 | University of Tehran Science & Technology Park | Tehran, Iran</p>
-                    <p>Participated in several Kaggle competitions and developed solutions using Scikit-Learn.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section" id="skills">
-          <div class="container">
-            <div class="h4 text-center mb-4 title">Top Skills</div>
-            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="progress-container progress-primary"><span class="progress-badge">C/C++</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="progress-container progress-primary"><span class="progress-badge">Python</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div><span class="progress-value"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="progress-container progress-primary"><span class="progress-badge">Low-Level Programming</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div><span class="progress-value"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="progress-container progress-primary"><span class="progress-badge">Multi-Core Programming</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="progress-container progress-primary"><span class="progress-badge">Linux</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div><span class="progress-value"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="progress-container progress-primary"><span class="progress-badge">Java</span>
-                      <div class="progress">
-                        <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-                <!-- Add more skills similarly -->
-              <!-- </div>
-            </div>
-          </div>
-        </div>
-        <div class="section" id="education">
-          <div class="container cc-education">
-            <div class="h4 text-center mb-4 title">Education</div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-education-header">
-                    <img src="images/waterloo-logo.png" alt="University of Waterloo Logo">
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Master's degree, Computer Software Engineering</div>
-                    <p>Sep 2021 - Sep 2023 | University of Waterloo | Waterloo, Canada</p>
-                    <p>Grade: 94 / 100. Thesis on snapshotting mechanisms for persistent memory-mapped files. <a href="https://uwspace.uwaterloo.ca/handle/10012/19907">View Thesis</a></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="row">
-                <div class="col-md-3" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body cc-education-header">
-                    <img src="images/ut-logo.png" alt="University of Tehran Logo">
-                  </div>
-                </div>
-                <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-                  <div class="card-body">
-                    <div class="h5">Bachelor's degree, Computer Engineering</div>
-                    <p>Sep 2016 - Jul 2021 | University of Tehran | Tehran, Iran</p>
-                    <p>Grade: 90 / 100. Thesis on social network analysis within the Ethereum ecosystem.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section" id="combined">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 ml-auto mr-auto">
-                <div class="h4 text-center mb-4 title">Pictures</div>
-                <div class="nav-align-center">
-                  <ul class="nav nav-pills nav-pills-primary" role="tablist">
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#combined" role="tablist"><i class="fa fa-th" aria-hidden="true"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="tab-content gallery mt-5">
-              <div class="tab-pane active" id="combined">
-                <div class="ml-auto mr-auto">
-                  <div class="row">
-                    <div class="col-md-6">
-                      <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                        <a href="#blockchain">
-                          <figure class="cc-effect">
-                            <img src="images/ethglobal.jpg" alt="Smarter Contract"/>
-                            <figcaption>
-                              <div class="h4">Smarter Contract</div>
-                              <p>Optimizes smart contract performance by delegating functions to cost-efficient blockchains in real-time.</p>
-                            </figcaption>
-                          </figure>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                        <a href="#blockchain">
-                          <figure class="cc-effect">
-                            <img src="images/hackathon-pic.jpg" alt="Glue"/>
-                            <figcaption>
-                              <div class="h4">Glue</div>
-                              <p>Simplifies the management of dApp smart contracts across various chains.</p>
-                            </figcaption>
-                          </figure>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row mt-4">
-                    <div class="col-md-6">
-                      <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                        <a href="#hackathons">
-                          <figure class="cc-effect">
-                            <img src="images/eth-team.jpg" alt="ETHGlobal Waterloo"/>
-                            <figcaption>
-                              <div class="h4">ETHGlobal Waterloo 2023</div>
-                              <p>Finalist in ETHGlobal Waterloo 2023, project: Smarter Contract.</p>
-                            </figcaption>
-                          </figure>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-                        <a href="#hackathons">
-                          <figure class="cc-effect">
-                            <img src="images/eth-global-team.jpg" alt="Best Usecase of Hyperlane"/>
-                            <figcaption>
-                              <div class="h4">Best Usecase of Hyperlane</div>
-                              <p>Winner for Best Usecase of Hyperlane, project: Smarter Contract.</p>
-                            </figcaption>
-                          </figure>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section" id="publications">
-          <div class="container">
-            <div class="h4 text-center mb-4 title">Publications</div>
-            <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="h5">Snapshotting Mechanisms for Persistent Memory-Mapped Files</div>
-                    <p>Published in ApPLIED@PODC 2024. <a href="https://doi.org/10.1145/3663338.3665832">DOI: 10.1145/3663338.3665832</a></p>
-                    <p>Investigates ways to enhance the reliability of persistent memory systems, focusing on snapshotting mechanisms and their role in system resilience. Introduces new snapshotting consistency models and mechanisms to improve performance and enhance system responsiveness. Provides experimental analysis demonstrating throughput and latency improvements.</p>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="h5">A Closer Look at Detectable Objects for Persistent Memory</div>
-                    <p>Published in ApPLIED@PODC 2022. <a href="https://doi.org/10.1145/3524053.3542749">DOI: 10.1145/3524053.3542749</a></p>
-                    <p>Explores the adaptation of multi-core algorithms to persistent memory, introducing the "Unified Detectable Sequential Specification" (UDSS), which simplifies interfaces and coding. Experiments conducted using Intel Optane memory demonstrate the performance implications of the implementation.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section" id="certificates">
-          <div class="container cc-certificates">
-            <div class="h4 mb-4 text-center title">Certificates</div>
-            <div class="row">
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/waterloo-logo.png" alt="University of Waterloo Logo">
-                  <div class="h5 pt-2">ExpecTAtions Teaching Assistant Workshop</div>
-                  <p>Issued by University of Waterloo in Oct 2021</p>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/ieee-tehran-logo.png" alt="IEEE University of Tehran Student Branch Logo">
-                  <div class="h5 pt-2">IEEE Data Science Winter School as Machine Learning Instructor</div>
-                  <p>Issued by IEEE University of Tehran Student Branch in Jan 2020</p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/ieee-tehran-logo.png" alt="IEEE University of Tehran Student Branch Logo">
-                  <div class="h5 pt-2">IEEE Data Science Winter School as Statistical Inference Instructor</div>
-                  <p>Issued by IEEE University of Tehran Student Branch in Jan 2020</p>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/ut-logo.png" alt="University of Tehran Logo">
-                  <div class="h5 pt-2">Workshop on Teaching Assistant Training</div>
-                  <p>Issued by University of Tehran in Apr 2019</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="section" id="awards">
-          <div class="container cc-certificates">
-            <div class="h4 mb-4 text-center title">Honors and Awards</div>
-            <div class="row">
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/huawei-logo.png" alt="Huawei Logo">
-                  <div class="h5 pt-2">2024 Q2 President's Spot Award</div>
-                  <p>Issued by Huawei Technologies Canada in Oct 2024.</p>
-                  <p>Was awarded the Best Team Award for outstanding contributions to LLM serving performance, by the President of the Canadian Research Center.</p>
-                </div>
-              </div>
+          </article>
 
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/ethglobal-logo.png" alt="ETHGlobal Logo">
-                  <div class="h5 pt-2">ETHGlobal Waterloo 2023 Finalist</div>
-                  <p>Issued by ETHGlobal in Jun 2023.</p>
-                  <p>Project: Smarter Contract. <a href="https://ethglobal.com/showcase/smarter-contract-kw41h">View Project</a></p>
-                </div>
+          <!-- TODO: Replace with real project (Card 2) -->
+          <article class="card" data-tags="python eda" style="--card-accent: var(--accent-2);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">Sales Trend EDA</h3>
+              <p class="card__desc">
+                Deep-dive exploration of three years of retail sales —
+                seasonality, region splits, and category-level trend breaks.
+              </p>
+              <p class="card__more" hidden>
+                Used decomposition, rolling stats, and statistical tests to
+                separate signal from noise, with a final report shared with
+                the business team.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">Pandas</li>
+                <li class="tag">Matplotlib</li>
+              </ul>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
               </div>
             </div>
-            <div class="row">
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/ethglobal-logo.png" alt="ETHGlobal Logo">
-                  <div class="h5 pt-2">Winner of Best Usecase of Hyperlane</div>
-                  <p>Issued by Hyperlane in Jun 2023.</p>
-                  <p>Project: Smarter Contract.</p>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/waterloo-blockchain-logo.png" alt="Waterloo Blockchain Logo">
-                  <div class="h5 pt-2">First Place in the Axelar Track at OlympiHacks</div>
-                  <p>Issued by Waterloo Blockchain in May 2023.</p>
-                  <p>Project: Glue. <a href="https://devpost.com/software/glue-efjb72">View Project</a></p>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/waterloo-logo.png" alt="University of Waterloo Logo">
-                  <div class="h5 pt-2">International Master's Award of Excellence</div>
-                  <p>Issued by University of Waterloo in Sep 2021.</p>
-                  <p><a href="https://uwaterloo.ca/current-graduate-students/catalogs/graduate-funding-and-awards-database/international-masters-award-excellence-imae">View Description</a></p>
-                </div>
-              </div>
-              <div class="col-lg-6 col-md-12">
-                <div class="card" data-aos="zoom-in">
-                  <img src="images/waterloo-logo.png" alt="University of Waterloo Logo">
-                  <div class="h5 pt-2">Graduate Research Studentship</div>
-                  <p>Issued by University of Waterloo in Sep 2021.</p>
-                  <p><a href="https://uwaterloo.ca/current-graduate-students/catalogs/graduate-funding-and-awards-database/graduate-research-studentship">View Description</a></p>
-                </div>
+          </article>
+
+          <!-- TODO: Replace with real project (Card 3) -->
+          <article class="card" data-tags="sql" style="--card-accent: var(--accent-3);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">SQL Revenue Dashboard</h3>
+              <p class="card__desc">
+                Modeled a star schema and shipped a daily revenue dashboard
+                covering MRR, cohort retention, and channel attribution.
+              </p>
+              <p class="card__more" hidden>
+                Stack: Postgres + dbt + a thin BI layer. Includes data
+                contracts, tests, and a documented metrics layer.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">SQL</li>
+                <li class="tag">dbt</li>
+                <li class="tag">Postgres</li>
+              </ul>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="section" id="contact">
-          <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
-            <div class="container">
-              <div class="cc-contact">
-                <div class="row">
-                  <div class="col-md-9">
-                    <div class="card mb-0" data-aos="zoom-in">
-                      <div class="h4 text-center title">Contact Me</div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="card-body">
-                            <p class="mb-0"><strong>Email</strong></p>
-                            <p><a href="mailto:moridi@uwaterloo.ca">moridi@uwaterloo.ca</a></p></p>
-                            <p class="mb-0"><strong>LinkedIn</strong></p>
-                            <p><a href="https://www.linkedin.com/in/seyed-ali-kashani/">www.linkedin.com/in/seyed-ali-kashani</a></p>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="card-body">
-                            <p class="mb-0"><strong>Location</strong></p>
-                            <p>Vancouver, British Columbia, Canada</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          </article>
+
+          <!-- TODO: Replace with real project (Card 4) -->
+          <article class="card" data-tags="python ml" style="--card-accent: var(--accent-4);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">NLP Sentiment Analysis</h3>
+              <p class="card__desc">
+                Classified product review sentiment using a fine-tuned
+                transformer, with topic clustering for the negative cohort.
+              </p>
+              <p class="card__more" hidden>
+                Compared a baseline TF-IDF + logistic model against a
+                distilled BERT, with attention to data leakage and class
+                imbalance.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">NLP</li>
+                <li class="tag">Transformers</li>
+              </ul>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       </div>
-    </div> -->
-    <footer class="footer">
-      <div class="container text-center"><a class="cc-facebook btn btn-link" href="https://www.linkedin.com/in/seyed-ali-kashani/"><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a></div>
-      <div class="h4 title text-center">Ali Kashani</div>
-      <div class="text-center text-muted">
-        <p>&copy; Creative CV. All rights reserved.<br>Design - <a class="credit" href="https://templateflip.com" target="_blank">TemplateFlip</a></p>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- DATA VISUALIZATIONS                                           -->
+    <!-- ============================================================ -->
+    <section
+      id="visualizations"
+      class="section section--alt reveal"
+      aria-labelledby="viz-heading"
+    >
+      <div class="container">
+        <header class="section__header">
+          <h2 id="viz-heading" class="section__title">Data Visualizations</h2>
+          <p class="section__subtitle">
+            Interactive Tableau dashboards — explore live
+          </p>
+        </header>
+
+        <!--
+          Tableau embed instructions
+          --------------------------
+          1. Publish your viz to Tableau Public.
+          2. Click the "Share" icon and copy the public URL
+             (e.g. https://public.tableau.com/views/MyViz/Dashboard1).
+          3. Paste it into the `src` attribute of the <tableau-viz> tag below.
+          4. Optional attributes: toolbar="bottom" | "top" | "hidden",
+             hide-tabs, device="default", and more — see Tableau docs.
+          The script tag for the embed component is loaded once in <head>.
+        -->
+
+        <div class="viz-grid">
+          <article class="viz-card">
+            <div class="viz-card__frame">
+              <!-- TODO: Replace with your Tableau Public URL -->
+              <tableau-viz
+                src="https://public.tableau.com/views/REPLACE_ME/Dashboard1"
+                toolbar="bottom"
+                hide-tabs
+              ></tableau-viz>
+            </div>
+            <div class="viz-card__meta">
+              <h3 class="viz-card__title">Sample Dashboard One</h3>
+              <p class="viz-card__desc">
+                <!-- TODO: Replace with your dashboard description -->
+                A short note about what this dashboard shows and why it matters.
+              </p>
+            </div>
+          </article>
+
+          <article class="viz-card">
+            <div class="viz-card__frame">
+              <!-- TODO: Replace with your Tableau Public URL -->
+              <tableau-viz
+                src="https://public.tableau.com/views/REPLACE_ME/Dashboard1"
+                toolbar="bottom"
+                hide-tabs
+              ></tableau-viz>
+            </div>
+            <div class="viz-card__meta">
+              <h3 class="viz-card__title">Sample Dashboard Two</h3>
+              <p class="viz-card__desc">
+                <!-- TODO: Replace with your dashboard description -->
+                A short note about what this dashboard shows and why it matters.
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
-    </footer>
-    <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
-    <script src="js/core/popper.min.js?ver=1.1.0"></script>
-    <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
-    <script src="js/now-ui-kit.js?ver=1.1.0"></script>
-    <script src="js/aos.js?ver=1.1.0"></script>
-    <script src="scripts/main.js?ver=1.1.0"></script>
-  </body>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- AUTOMATION                                                    -->
+    <!-- ============================================================ -->
+    <section id="automation" class="section reveal" aria-labelledby="automation-heading">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="automation-heading" class="section__title">Automation Projects</h2>
+          <p class="section__subtitle">
+            Scripts, pipelines, and tools that save hours of manual work
+          </p>
+        </header>
+
+        <div class="filter-bar" role="tablist" aria-label="Automation filters">
+          <button class="filter is-active" data-filter="all" data-target="automation-grid">All</button>
+          <button class="filter" data-filter="python" data-target="automation-grid">Python</button>
+          <button class="filter" data-filter="etl" data-target="automation-grid">ETL</button>
+          <button class="filter" data-filter="scheduling" data-target="automation-grid">Scheduling</button>
+          <button class="filter" data-filter="apis" data-target="automation-grid">APIs</button>
+          <button class="filter" data-filter="scraping" data-target="automation-grid">Web Scraping</button>
+        </div>
+
+        <div class="card-grid" id="automation-grid">
+          <!-- TODO: Replace with real project (Auto Card 1) -->
+          <article class="card card--icon" data-tags="python scheduling" style="--card-accent: var(--accent-1);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <div class="card__icon" aria-hidden="true">
+                <!-- gear icon -->
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M19.14 12.94a7.14 7.14 0 0 0 .05-.94 7.14 7.14 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.04 7.04 0 0 0-1.62-.94l-.36-2.54A.5.5 0 0 0 13.9 2h-3.8a.5.5 0 0 0-.49.42l-.36 2.54c-.59.24-1.13.55-1.62.94l-2.39-.96a.5.5 0 0 0-.61.22L2.71 8.48a.5.5 0 0 0 .12.64l2.03 1.58a7.14 7.14 0 0 0 0 1.88l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.14.24.43.34.69.24l2.31-.96c.49.39 1.03.7 1.62.94l.36 2.54c.05.24.25.42.49.42h3.8c.24 0 .44-.18.49-.42l.36-2.54c.59-.24 1.13-.55 1.62-.94l2.31.96c.26.1.55 0 .69-.24l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"/>
+                </svg>
+              </div>
+              <h3 class="card__title">Automated Weekly Report Generator</h3>
+              <p class="card__desc">
+                Pulls metrics from BigQuery, renders a templated PDF, and
+                emails it to stakeholders every Monday — no human in the loop.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">Cron</li>
+                <li class="tag">SMTP</li>
+              </ul>
+              <div class="card__actions">
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- TODO: Replace with real project (Auto Card 2) -->
+          <article class="card card--icon" data-tags="python etl scheduling" style="--card-accent: var(--accent-2);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <div class="card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 2a3 3 0 0 0-3 3v1H6a2 2 0 0 0-2 2v3H3v3h1v3a2 2 0 0 0 2 2h3v1a3 3 0 0 0 6 0v-1h3a2 2 0 0 0 2-2v-3h1v-3h-1V8a2 2 0 0 0-2-2h-3V5a3 3 0 0 0-3-3zm-2 9h4v2h-4v-2z"/>
+                </svg>
+              </div>
+              <h3 class="card__title">ETL Pipeline with Python &amp; Airflow</h3>
+              <p class="card__desc">
+                A modular Airflow DAG orchestrating extraction, cleaning, and
+                load steps with retry logic and Slack alerts on failure.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">Airflow</li>
+                <li class="tag">ETL</li>
+              </ul>
+              <div class="card__actions">
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- TODO: Replace with real project (Auto Card 3) -->
+          <article class="card card--icon" data-tags="python scraping apis" style="--card-accent: var(--accent-3);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <div class="card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M21 11h-2.07A7.002 7.002 0 0 0 13 5.07V3h-2v2.07A7.002 7.002 0 0 0 5.07 11H3v2h2.07A7.002 7.002 0 0 0 11 18.93V21h2v-2.07A7.002 7.002 0 0 0 18.93 13H21v-2zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                </svg>
+              </div>
+              <h3 class="card__title">Web Scraper for Competitor Pricing</h3>
+              <p class="card__desc">
+                Polite, rate-limited scraper that captures daily price points
+                from a list of competitor pages and writes a tidy CSV.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">Requests</li>
+                <li class="tag">BeautifulSoup</li>
+              </ul>
+              <div class="card__actions">
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ABOUT                                                         -->
+    <!-- ============================================================ -->
+    <section id="about" class="section section--alt reveal" aria-labelledby="about-heading">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="about-heading" class="section__title">About</h2>
+          <p class="section__subtitle">A bit about who I am and how I work</p>
+        </header>
+
+        <div class="about">
+          <div class="about__photo" aria-hidden="true">
+            <!-- TODO: Replace initials with a real photo (use <img> instead of this div) -->
+            <span>AK</span>
+          </div>
+
+          <div class="about__bio">
+            <!-- TODO: Replace with your real bio -->
+            <p>
+              I'm a data analyst based in Toronto. I enjoy the full arc of
+              data work — getting close to the source, modeling the messy
+              reality, and shipping something stakeholders actually use.
+            </p>
+            <p>
+              My background is a mix of analytics, BI, and lightweight
+              software engineering. I care a lot about clarity:
+              well-named columns, plots that don't lie, and dashboards that
+              someone can read in ten seconds.
+            </p>
+            <p>
+              Outside of work, I write, tinker with side projects, and look
+              for excuses to learn something new.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills">
+          <div class="skills__group">
+            <h4 class="skills__label">Languages</h4>
+            <ul class="pill-list">
+              <li class="pill">Python</li>
+              <li class="pill">SQL</li>
+              <li class="pill">R</li>
+            </ul>
+          </div>
+          <div class="skills__group">
+            <h4 class="skills__label">Visualization</h4>
+            <ul class="pill-list">
+              <li class="pill">Tableau</li>
+              <li class="pill">Power BI</li>
+              <li class="pill">Matplotlib</li>
+              <li class="pill">Seaborn</li>
+            </ul>
+          </div>
+          <div class="skills__group">
+            <h4 class="skills__label">Tools</h4>
+            <ul class="pill-list">
+              <li class="pill">dbt</li>
+              <li class="pill">Airflow</li>
+              <li class="pill">Git</li>
+              <li class="pill">Excel</li>
+            </ul>
+          </div>
+          <div class="skills__group">
+            <h4 class="skills__label">Cloud</h4>
+            <ul class="pill-list">
+              <li class="pill">AWS</li>
+              <li class="pill">GCP</li>
+            </ul>
+          </div>
+        </div>
+
+        <ol class="timeline">
+          <!-- TODO: Replace with real career milestones -->
+          <li class="timeline__item">
+            <span class="timeline__date">2024 — Present</span>
+            <h4 class="timeline__role">Data Analyst · Company Name</h4>
+            <p class="timeline__desc">
+              Building dashboards, analytics, and automation for the growth
+              team.
+            </p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__date">2022 — 2024</span>
+            <h4 class="timeline__role">Junior Analyst · Previous Company</h4>
+            <p class="timeline__desc">
+              Reporting, data cleaning, and a lot of SQL.
+            </p>
+          </li>
+          <li class="timeline__item">
+            <span class="timeline__date">2021</span>
+            <h4 class="timeline__role">B.Sc. — University Name</h4>
+            <p class="timeline__desc">
+              Studied statistics and computer science.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTACT                                                       -->
+    <!-- ============================================================ -->
+    <section id="contact" class="section reveal" aria-labelledby="contact-heading">
+      <div class="container container--narrow">
+        <header class="section__header">
+          <h2 id="contact-heading" class="section__title">Let's Work Together</h2>
+          <p class="section__subtitle">
+            <!-- TODO: Replace with your real intro -->
+            Have a project in mind, or just want to chat about data? I'd love
+            to hear from you.
+          </p>
+        </header>
+
+        <div class="contact-icons">
+          <!-- TODO: Replace with real GitHub URL -->
+          <a class="round-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+            </svg>
+          </a>
+          <!-- TODO: Replace with real LinkedIn URL -->
+          <a class="round-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.22 0z"/>
+            </svg>
+          </a>
+          <!-- TODO: Replace with real email -->
+          <a class="round-btn" href="mailto:hello@example.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Connect to Formspree or EmailJS for functionality -->
+        <form class="contact-form" onsubmit="event.preventDefault();" aria-label="Contact form">
+          <div class="form-row">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" id="name" name="name" type="text" autocomplete="name" />
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" type="email" autocomplete="email" />
+          </div>
+          <div class="form-row">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-input form-input--area" id="message" name="message" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                        -->
+  <!-- ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__text">
+        Ali Kashani · <span id="year"></span> · Built with &hearts; and data
+      </p>
+      <p class="footer__archive">
+        <a href="archive/index.html">View previous portfolio</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
