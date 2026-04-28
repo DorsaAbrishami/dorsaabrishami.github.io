@@ -162,4 +162,60 @@
       }
     });
   });
+
+  /* ----------------------------------------------------------
+     8. Location map (Leaflet + OpenStreetMap / Carto tiles)
+     ---------------------------------------------------------- */
+  function initMap() {
+    const mapEl = document.getElementById('map');
+    if (!mapEl || typeof L === 'undefined') return;
+
+    const TORONTO = [43.6532, -79.3832];
+
+    const map = L.map(mapEl, {
+      center: TORONTO,
+      zoom: 4,
+      minZoom: 2,
+      maxZoom: 19,
+      worldCopyJump: true,
+      scrollWheelZoom: true,
+    });
+
+    L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+      {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19,
+      }
+    ).addTo(map);
+
+    const pin = L.circleMarker(TORONTO, {
+      radius: 9,
+      color: '#1f1b16',
+      weight: 2,
+      fillColor: '#c25a3a',
+      fillOpacity: 1,
+    }).addTo(map);
+
+    pin.bindPopup('<strong>Toronto, Canada</strong>').openPopup();
+
+    // Recompute size if the map becomes visible / window resizes.
+    window.addEventListener('resize', () => map.invalidateSize());
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) map.invalidateSize();
+        });
+      });
+      io.observe(mapEl);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMap);
+  } else {
+    initMap();
+  }
 })();

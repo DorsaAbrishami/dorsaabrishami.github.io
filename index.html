@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿?<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -19,11 +19,11 @@
     Old site is reachable at: https://alikashani.github.io/archive/
   -->
 
-  <!-- Google Fonts: Inter for body, DM Serif Display for headings -->
+  <!-- Google Fonts: Inter for body, Fraunces (editorial serif) for headings -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
 
@@ -33,7 +33,21 @@
     src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"
   ></script>
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- Leaflet (interactive map) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer
+  ></script>
+
+  <link rel="stylesheet" href="style.css?v=2" />
 </head>
 
 <body>
@@ -42,7 +56,7 @@
   <!-- ============================================================ -->
   <nav class="nav" id="nav" aria-label="Primary">
     <div class="nav__inner">
-      <a href="#home" class="nav__logo">Ali Kashani</a>
+      <a href="#home" class="nav__logo">Ali Kashani | Resume</a>
 
       <button
         class="nav__toggle"
@@ -56,10 +70,8 @@
 
       <ul class="nav__links" id="navLinks">
         <li><a href="#home" class="nav__link">Home</a></li>
-        <li><a href="#analytics" class="nav__link">Analytics</a></li>
-        <li><a href="#visualizations" class="nav__link">Visualizations</a></li>
-        <li><a href="#automation" class="nav__link">Automation</a></li>
         <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
         <li><a href="#contact" class="nav__link">Contact</a></li>
       </ul>
     </div>
@@ -73,362 +85,40 @@
       <div class="hero__bg" aria-hidden="true"></div>
 
       <div class="container hero__inner">
-        <p class="hero__eyebrow">Data Analyst · Visualization · Automation</p>
+        <p class="hero__eyebrow">Welcome to my portfolio</p>
 
         <h1 id="hero-heading" class="hero__title">
-          Hi, I'm <span class="hero__name">Ali</span>.
+          <span class="hero__name-line">ALI</span>
+          <span class="hero__name-line">KASHANI</span>
         </h1>
+
+        <div class="hero__rule" aria-hidden="true"></div>
 
         <!-- TODO: Replace bio with your real elevator pitch -->
         <p class="hero__bio">
-          I turn messy data into clear stories and reliable systems. I work
-          across analytics, dashboards, and automation — helping teams see
-          what's happening, understand why, and act faster. Currently focused
-          on building tools that make data work feel effortless.
+          <span class="hero__wave" aria-hidden="true">👋</span>
+          Hi! I'm a <strong>data analyst</strong> who turns messy data into
+          clear stories and reliable systems. I work across
+          <strong>analytics</strong>, <strong>visualization</strong>, and
+          <strong>automation</strong> — helping teams see what's happening,
+          understand why, and act faster.
         </p>
 
         <div class="hero__cta">
-          <a href="#analytics" class="btn btn--primary">View My Work</a>
+          <a href="#portfolio" class="btn btn--primary">View My Work</a>
           <a href="#contact" class="btn btn--outline">Get in Touch</a>
         </div>
       </div>
 
-      <a href="#analytics" class="hero__scroll" aria-label="Scroll to projects">
+      <a href="#portfolio" class="hero__scroll" aria-label="Scroll to projects">
         <span class="hero__chevron"></span>
       </a>
     </section>
 
     <!-- ============================================================ -->
-    <!-- ANALYTICS PROJECTS                                            -->
-    <!-- ============================================================ -->
-    <section id="analytics" class="section reveal" aria-labelledby="analytics-heading">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="analytics-heading" class="section__title">Analytics Projects</h2>
-          <p class="section__subtitle">
-            A collection of data analysis work — from EDA to predictive modeling
-          </p>
-        </header>
-
-        <!-- Filter bar -->
-        <div class="filter-bar" role="tablist" aria-label="Analytics filters">
-          <button class="filter is-active" data-filter="all" data-target="analytics-grid">All</button>
-          <button class="filter" data-filter="python" data-target="analytics-grid">Python</button>
-          <button class="filter" data-filter="sql" data-target="analytics-grid">SQL</button>
-          <button class="filter" data-filter="ml" data-target="analytics-grid">Machine Learning</button>
-          <button class="filter" data-filter="eda" data-target="analytics-grid">EDA</button>
-        </div>
-
-        <!-- Project grid -->
-        <div class="card-grid" id="analytics-grid">
-          <!-- TODO: Replace with real project (Card 1) -->
-          <article class="card" data-tags="python ml" style="--card-accent: var(--accent-1);">
-            <div class="card__bar"></div>
-            <div class="card__body">
-              <h3 class="card__title">Customer Churn Prediction</h3>
-              <p class="card__desc">
-                Built a logistic regression and random forest pipeline to flag
-                at-risk customers. Surfaced top retention drivers via SHAP.
-              </p>
-              <p class="card__more" hidden>
-                Engineered ~40 features from billing and engagement data,
-                tuned with cross-validation, and exposed the scoring service
-                behind a simple Flask API.
-              </p>
-              <ul class="tag-list">
-                <li class="tag">Python</li>
-                <li class="tag">scikit-learn</li>
-                <li class="tag">Pandas</li>
-              </ul>
-              <div class="card__actions">
-                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
-                <!-- TODO: Replace with real GitHub URL -->
-                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- TODO: Replace with real project (Card 2) -->
-          <article class="card" data-tags="python eda" style="--card-accent: var(--accent-2);">
-            <div class="card__bar"></div>
-            <div class="card__body">
-              <h3 class="card__title">Sales Trend EDA</h3>
-              <p class="card__desc">
-                Deep-dive exploration of three years of retail sales —
-                seasonality, region splits, and category-level trend breaks.
-              </p>
-              <p class="card__more" hidden>
-                Used decomposition, rolling stats, and statistical tests to
-                separate signal from noise, with a final report shared with
-                the business team.
-              </p>
-              <ul class="tag-list">
-                <li class="tag">Python</li>
-                <li class="tag">Pandas</li>
-                <li class="tag">Matplotlib</li>
-              </ul>
-              <div class="card__actions">
-                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
-                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- TODO: Replace with real project (Card 3) -->
-          <article class="card" data-tags="sql" style="--card-accent: var(--accent-3);">
-            <div class="card__bar"></div>
-            <div class="card__body">
-              <h3 class="card__title">SQL Revenue Dashboard</h3>
-              <p class="card__desc">
-                Modeled a star schema and shipped a daily revenue dashboard
-                covering MRR, cohort retention, and channel attribution.
-              </p>
-              <p class="card__more" hidden>
-                Stack: Postgres + dbt + a thin BI layer. Includes data
-                contracts, tests, and a documented metrics layer.
-              </p>
-              <ul class="tag-list">
-                <li class="tag">SQL</li>
-                <li class="tag">dbt</li>
-                <li class="tag">Postgres</li>
-              </ul>
-              <div class="card__actions">
-                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
-                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- TODO: Replace with real project (Card 4) -->
-          <article class="card" data-tags="python ml" style="--card-accent: var(--accent-4);">
-            <div class="card__bar"></div>
-            <div class="card__body">
-              <h3 class="card__title">NLP Sentiment Analysis</h3>
-              <p class="card__desc">
-                Classified product review sentiment using a fine-tuned
-                transformer, with topic clustering for the negative cohort.
-              </p>
-              <p class="card__more" hidden>
-                Compared a baseline TF-IDF + logistic model against a
-                distilled BERT, with attention to data leakage and class
-                imbalance.
-              </p>
-              <ul class="tag-list">
-                <li class="tag">Python</li>
-                <li class="tag">NLP</li>
-                <li class="tag">Transformers</li>
-              </ul>
-              <div class="card__actions">
-                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
-                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- DATA VISUALIZATIONS                                           -->
-    <!-- ============================================================ -->
-    <section
-      id="visualizations"
-      class="section section--alt reveal"
-      aria-labelledby="viz-heading"
-    >
-      <div class="container">
-        <header class="section__header">
-          <h2 id="viz-heading" class="section__title">Data Visualizations</h2>
-          <p class="section__subtitle">
-            Interactive Tableau dashboards — explore live
-          </p>
-        </header>
-
-        <!--
-          Tableau embed instructions
-          --------------------------
-          1. Publish your viz to Tableau Public.
-          2. Click the "Share" icon and copy the public URL
-             (e.g. https://public.tableau.com/views/MyViz/Dashboard1).
-          3. Paste it into the `src` attribute of the <tableau-viz> tag below.
-          4. Optional attributes: toolbar="bottom" | "top" | "hidden",
-             hide-tabs, device="default", and more — see Tableau docs.
-          The script tag for the embed component is loaded once in <head>.
-        -->
-
-        <div class="viz-grid">
-          <article class="viz-card">
-            <div class="viz-card__frame">
-              <!-- TODO: Replace with your Tableau Public URL -->
-              <tableau-viz
-                src="https://public.tableau.com/views/REPLACE_ME/Dashboard1"
-                toolbar="bottom"
-                hide-tabs
-              ></tableau-viz>
-            </div>
-            <div class="viz-card__meta">
-              <h3 class="viz-card__title">Sample Dashboard One</h3>
-              <p class="viz-card__desc">
-                <!-- TODO: Replace with your dashboard description -->
-                A short note about what this dashboard shows and why it matters.
-              </p>
-            </div>
-          </article>
-
-          <article class="viz-card">
-            <div class="viz-card__frame">
-              <!-- TODO: Replace with your Tableau Public URL -->
-              <tableau-viz
-                src="https://public.tableau.com/views/REPLACE_ME/Dashboard1"
-                toolbar="bottom"
-                hide-tabs
-              ></tableau-viz>
-            </div>
-            <div class="viz-card__meta">
-              <h3 class="viz-card__title">Sample Dashboard Two</h3>
-              <p class="viz-card__desc">
-                <!-- TODO: Replace with your dashboard description -->
-                A short note about what this dashboard shows and why it matters.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
-    <!-- AUTOMATION                                                    -->
-    <!-- ============================================================ -->
-    <section id="automation" class="section reveal" aria-labelledby="automation-heading">
-      <div class="container">
-        <header class="section__header">
-          <h2 id="automation-heading" class="section__title">Automation Projects</h2>
-          <p class="section__subtitle">
-            Scripts, pipelines, and tools that save hours of manual work
-          </p>
-        </header>
-
-        <div class="filter-bar" role="tablist" aria-label="Automation filters">
-          <button class="filter is-active" data-filter="all" data-target="automation-grid">All</button>
-          <button class="filter" data-filter="python" data-target="automation-grid">Python</button>
-          <button class="filter" data-filter="etl" data-target="automation-grid">ETL</button>
-          <button class="filter" data-filter="scheduling" data-target="automation-grid">Scheduling</button>
-          <button class="filter" data-filter="apis" data-target="automation-grid">APIs</button>
-          <button class="filter" data-filter="scraping" data-target="automation-grid">Web Scraping</button>
-        </div>
-
-        <div class="card-grid" id="automation-grid">
-          <!-- TODO: Replace with real project (Auto Card 1) -->
-          <article class="card card--icon" data-tags="python scheduling" style="--card-accent: var(--accent-1);">
-            <div class="card__bar"></div>
-            <div class="card__body">
-              <div class="card__icon" aria-hidden="true">
-                <!-- gear icon -->
-                <svg viewBox="0 0 24 24" width="22" height="22">
-                  <path fill="currentColor" d="M19.14 12.94a7.14 7.14 0 0 0 .05-.94 7.14 7.14 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.04 7.04 0 0 0-1.62-.94l-.36-2.54A.5.5 0 0 0 13.9 2h-3.8a.5.5 0 0 0-.49.42l-.36 2.54c-.59.24-1.13.55-1.62.94l-2.39-.96a.5.5 0 0 0-.61.22L2.71 8.48a.5.5 0 0 0 .12.64l2.03 1.58a7.14 7.14 0 0 0 0 1.88l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.14.24.43.34.69.24l2.31-.96c.49.39 1.03.7 1.62.94l.36 2.54c.05.24.25.42.49.42h3.8c.24 0 .44-.18.49-.42l.36-2.54c.59-.24 1.13-.55 1.62-.94l2.31.96c.26.1.55 0 .69-.24l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"/>
-                </svg>
-              </div>
-              <h3 class="card__title">Automated Weekly Report Generator</h3>
-              <p class="card__desc">
-                Pulls metrics from BigQuery, renders a templated PDF, and
-                emails it to stakeholders every Monday — no human in the loop.
-              </p>
-              <ul class="tag-list">
-                <li class="tag">Python</li>
-                <li class="tag">Cron</li>
-                <li class="tag">SMTP</li>
-              </ul>
-              <div class="card__actions">
-                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- TODO: Replace with real project (Auto Card 2) -->
-          <article class="card card--icon" data-tags="python etl scheduling" style="--card-accent: var(--accent-2);">
-            <div class="card__bar"></div>
-            <div class="card__body">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22">
-                  <path fill="currentColor" d="M12 2a3 3 0 0 0-3 3v1H6a2 2 0 0 0-2 2v3H3v3h1v3a2 2 0 0 0 2 2h3v1a3 3 0 0 0 6 0v-1h3a2 2 0 0 0 2-2v-3h1v-3h-1V8a2 2 0 0 0-2-2h-3V5a3 3 0 0 0-3-3zm-2 9h4v2h-4v-2z"/>
-                </svg>
-              </div>
-              <h3 class="card__title">ETL Pipeline with Python &amp; Airflow</h3>
-              <p class="card__desc">
-                A modular Airflow DAG orchestrating extraction, cleaning, and
-                load steps with retry logic and Slack alerts on failure.
-              </p>
-              <ul class="tag-list">
-                <li class="tag">Python</li>
-                <li class="tag">Airflow</li>
-                <li class="tag">ETL</li>
-              </ul>
-              <div class="card__actions">
-                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- TODO: Replace with real project (Auto Card 3) -->
-          <article class="card card--icon" data-tags="python scraping apis" style="--card-accent: var(--accent-3);">
-            <div class="card__bar"></div>
-            <div class="card__body">
-              <div class="card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="22" height="22">
-                  <path fill="currentColor" d="M21 11h-2.07A7.002 7.002 0 0 0 13 5.07V3h-2v2.07A7.002 7.002 0 0 0 5.07 11H3v2h2.07A7.002 7.002 0 0 0 11 18.93V21h2v-2.07A7.002 7.002 0 0 0 18.93 13H21v-2zM12 17a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
-                </svg>
-              </div>
-              <h3 class="card__title">Web Scraper for Competitor Pricing</h3>
-              <p class="card__desc">
-                Polite, rate-limited scraper that captures daily price points
-                from a list of competitor pages and writes a tidy CSV.
-              </p>
-              <ul class="tag-list">
-                <li class="tag">Python</li>
-                <li class="tag">Requests</li>
-                <li class="tag">BeautifulSoup</li>
-              </ul>
-              <div class="card__actions">
-                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================ -->
     <!-- ABOUT                                                         -->
     <!-- ============================================================ -->
-    <section id="about" class="section section--alt reveal" aria-labelledby="about-heading">
+    <section id="about" class="section reveal" aria-labelledby="about-heading">
       <div class="container">
         <header class="section__header">
           <h2 id="about-heading" class="section__title">About</h2>
@@ -526,57 +216,199 @@
     </section>
 
     <!-- ============================================================ -->
+    <!-- PORTFOLIO                                                     -->
+    <!-- ============================================================ -->
+    <section id="portfolio" class="section section--alt reveal" aria-labelledby="portfolio-heading">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="portfolio-heading" class="section__title">Portfolio</h2>
+          <p class="section__subtitle">
+            A glimpse of the projects I've been working on
+          </p>
+        </header>
+
+        <!-- Filter bar -->
+        <div class="filter-bar" role="tablist" aria-label="Portfolio filters">
+          <button class="filter is-active" data-filter="all" data-target="portfolio-grid">All</button>
+          <button class="filter" data-filter="Visualization" data-target="portfolio-grid">Visualization</button>
+          <button class="filter" data-filter="Analytics" data-target="portfolio-grid">Analytics</button>
+          <button class="filter" data-filter="Automation" data-target="portfolio-grid">Automation</button>
+        </div>
+
+        <!-- Project grid -->
+        <div class="card-grid" id="portfolio-grid">
+          <!-- TODO: Replace with real project (Card 1) -->
+          <article class="card" data-tags="python ml" style="--card-accent: var(--accent-1);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">Customer Churn Prediction</h3>
+              <p class="card__desc">
+                Built a logistic regression and random forest pipeline to flag
+                at-risk customers. Surfaced top retention drivers via SHAP.
+              </p>
+              <p class="card__more" hidden>
+                Engineered ~40 features from billing and engagement data,
+                tuned with cross-validation, and exposed the scoring service
+                behind a simple Flask API.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">scikit-learn</li>
+                <li class="tag">Pandas</li>
+              </ul>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <!-- TODO: Replace with real GitHub URL -->
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- TODO: Replace with real project (Card 2) -->
+          <article class="card" data-tags="python eda" style="--card-accent: var(--accent-2);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">Sales Trend EDA</h3>
+              <p class="card__desc">
+                Deep-dive exploration of three years of retail sales —
+                seasonality, region splits, and category-level trend breaks.
+              </p>
+              <p class="card__more" hidden>
+                Used decomposition, rolling stats, and statistical tests to
+                separate signal from noise, with a final report shared with
+                the business team.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">Pandas</li>
+                <li class="tag">Matplotlib</li>
+              </ul>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <a class="icon-btn" href="https://github.com/alikashani97" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- TODO: Replace with real project (Card 3) -->
+          <article class="card" data-tags="visualization" style="--card-accent: var(--accent-3);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">SQL Revenue Dashboard</h3>
+              <p class="card__desc">
+                Modeled a star schema and shipped a daily revenue dashboard
+                covering MRR, cohort retention, and channel attribution.
+              </p>
+              <p class="card__more" hidden>
+                Stack: Postgres + dbt + a thin BI layer. Includes data
+                contracts, tests, and a documented metrics layer.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">SQL</li>
+                <li class="tag">dbt</li>
+                <li class="tag">Postgres</li>
+              </ul>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- TODO: Replace with real project (Card 4) -->
+          <article class="card" data-tags="python ml" style="--card-accent: var(--accent-4);">
+            <div class="card__bar"></div>
+            <div class="card__body">
+              <h3 class="card__title">NLP Sentiment Analysis</h3>
+              <p class="card__desc">
+                Classified product review sentiment using a fine-tuned
+                transformer, with topic clustering for the negative cohort.
+              </p>
+              <p class="card__more" hidden>
+                Compared a baseline TF-IDF + logistic model against a
+                distilled BERT, with attention to data leakage and class
+                imbalance.
+              </p>
+              <ul class="tag-list">
+                <li class="tag">Python</li>
+                <li class="tag">NLP</li>
+                <li class="tag">Transformers</li>
+              </ul>
+              <div class="card__actions">
+                <button class="link-btn js-toggle-more" aria-expanded="false">Read more</button>
+                <a class="icon-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="View on GitHub">
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
     <!-- CONTACT                                                       -->
     <!-- ============================================================ -->
     <section id="contact" class="section reveal" aria-labelledby="contact-heading">
       <div class="container container--narrow">
         <header class="section__header">
-          <h2 id="contact-heading" class="section__title">Let's Work Together</h2>
+          <h2 id="contact-heading" class="section__title">Let's Connect</h2>
           <p class="section__subtitle">
-            <!-- TODO: Replace with your real intro -->
-            Have a project in mind, or just want to chat about data? I'd love
-            to hear from you.
+            Feel free to reach out to me via email or LinkedIn.
           </p>
         </header>
 
         <div class="contact-icons">
-          <!-- TODO: Replace with real GitHub URL -->
-          <a class="round-btn" href="https://github.com/alikashani" target="_blank" rel="noopener" aria-label="GitHub">
+          <a class="round-btn" href="https://github.com/alikashani97" target="_blank" rel="noopener" aria-label="GitHub">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
               <path fill="currentColor" d="M12 .5C5.73.5.7 5.53.7 11.8c0 4.93 3.2 9.11 7.64 10.59.56.1.76-.24.76-.54v-1.9c-3.11.68-3.77-1.5-3.77-1.5-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 1.72 2.63 1.22 3.27.93.1-.73.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.5 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.07 1.13a10.6 10.6 0 0 1 5.6 0c2.13-1.43 3.07-1.13 3.07-1.13.61 1.53.22 2.66.11 2.94.71.77 1.14 1.76 1.14 2.97 0 4.27-2.61 5.21-5.1 5.49.4.34.76 1.02.76 2.06v3.05c0 .3.2.65.77.54a11.1 11.1 0 0 0 7.63-10.59C23.3 5.53 18.27.5 12 .5z"/>
             </svg>
           </a>
-          <!-- TODO: Replace with real LinkedIn URL -->
-          <a class="round-btn" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <a class="round-btn" href="https://www.linkedin.com/in/seyed-ali-kashani" target="_blank" rel="noopener" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
               <path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.22 0z"/>
             </svg>
           </a>
           <!-- TODO: Replace with real email -->
-          <a class="round-btn" href="mailto:hello@example.com" aria-label="Email">
+          <a class="round-btn" href="mailto:alikashani9775@gmail.com" aria-label="Email">
             <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
               <path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
             </svg>
           </a>
         </div>
 
-        <!-- Connect to Formspree or EmailJS for functionality -->
-        <form class="contact-form" onsubmit="event.preventDefault();" aria-label="Contact form">
-          <div class="form-row">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-input" id="name" name="name" type="text" autocomplete="name" />
-          </div>
-          <div class="form-row">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" id="email" name="email" type="email" autocomplete="email" />
-          </div>
-          <div class="form-row">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-input form-input--area" id="message" name="message" rows="5"></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary">Send</button>
-        </form>
       </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- LOCATION MAP                                                  -->
+    <!-- ============================================================ -->
+    <section id="location" class="map-section reveal" aria-labelledby="map-heading">
+      <div class="container">
+        <p class="map-section__eyebrow">Based in</p>
+        <h2 id="map-heading" class="map-section__title">Toronto, Canada</h2>
+      </div>
+      <div
+        id="map"
+        class="map"
+        role="region"
+        aria-label="Map showing Toronto, Canada"
+        style="height: 480px; width: 100%;"
+      ></div>
     </section>
   </main>
 
@@ -594,6 +426,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
