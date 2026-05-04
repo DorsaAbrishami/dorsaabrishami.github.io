@@ -1,26 +1,16 @@
 # alikashani.github.io
 
-Personal portfolio site for Ali Kashani — Data Analyst.
+Personal portfolio site for Dorsa Abrishami — Data Analyst.
 
 ## Structure
 
 ```
-alikashani.github.io/
-├── index.html      # New portfolio (root entry point)
+dorsaabrishami.github.io/
+├── index.html      # Portfolio (root entry point)
 ├── style.css       # All styles
 ├── script.js       # All JS
-├── assets/         # Images, icons, etc.
-└── archive/        # Original portfolio, untouched
-    ├── index.html
-    ├── css/
-    ├── js/
-    ├── images/
-    └── ...
+└── assets/         # Images, icons, etc.
 ```
-
-The previous portfolio is preserved as-is at
-[`/archive/`](./archive/index.html) and can still be visited at
-`https://alikashani.github.io/archive/`.
 
 ## Local development
 

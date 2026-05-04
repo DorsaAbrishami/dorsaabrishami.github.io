@@ -1,5 +1,5 @@
 /* ==============================================================
-   Ali Kashani — Portfolio
+   Dorsa Abrishami — Portfolio
    Editorial / warm-cream theme inspired by yan-holtz.com
    ============================================================== */
 
@@ -654,6 +654,12 @@ ul { list-style: none; padding: 0; margin: 0; }
   border-bottom-color: var(--accent);
 }
 
+.card__links {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .icon-btn {
   display: inline-flex;
   align-items: center;
@@ -698,6 +704,15 @@ ul { list-style: none; padding: 0; margin: 0; }
   letter-spacing: 0.02em;
   box-shadow: 0 20px 40px rgba(194, 90, 58, 0.20);
   border: 4px solid var(--bg-primary);
+  overflow: hidden;
+}
+
+.about__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 .about__bio p {
@@ -843,6 +858,74 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 
 /* --------------------------------------------------------------
+   Certifications
+   -------------------------------------------------------------- */
+.certifications {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.certifications__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+}
+
+.cert-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 700px) {
+  .cert-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .cert-list { grid-template-columns: repeat(3, 1fr); }
+}
+
+.cert {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.cert:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.cert__name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.cert__meta {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+.cert__meta em {
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------
    Contact
    -------------------------------------------------------------- */
 #contact .section__header {
@@ -859,6 +942,23 @@ ul { list-style: none; padding: 0; margin: 0; }
   justify-content: center;
   gap: 18px;
   margin: 24px 0 8px;
+}
+
+.contact-meta {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin: 18px 0 0;
+}
+.contact-meta a {
+  color: var(--text-primary);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.contact-meta a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .round-btn {
@@ -967,22 +1067,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   letter-spacing: 0.04em;
   color: var(--text-secondary);
 }
-.footer__archive {
-  margin: 0;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-}
-.footer__archive a {
-  color: var(--text-muted);
-  text-decoration: underline;
-  text-decoration-color: var(--border);
-  text-underline-offset: 3px;
-}
-.footer__archive a:hover {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
-}
-
 /* --------------------------------------------------------------
    Reveal animation (IntersectionObserver-driven)
    -------------------------------------------------------------- */
@@ -998,14 +1082,16 @@ ul { list-style: none; padding: 0; margin: 0; }
 
 .reveal .card,
 .reveal .skills__group,
-.reveal .timeline__item {
+.reveal .timeline__item,
+.reveal .cert {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 .reveal.visible .card,
 .reveal.visible .skills__group,
-.reveal.visible .timeline__item {
+.reveal.visible .timeline__item,
+.reveal.visible .cert {
   opacity: 1;
   transform: translateY(0);
 }

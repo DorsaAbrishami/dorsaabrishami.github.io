@@ -1,5 +1,5 @@
 /* ==============================================================
-   Ali Kashani — Portfolio
+   Dorsa Abrishami — Portfolio
    Single vanilla JS file. No dependencies.
    ============================================================== */
 
@@ -170,11 +170,11 @@
     const mapEl = document.getElementById('map');
     if (!mapEl || typeof L === 'undefined') return;
 
-    const TORONTO = [43.6532, -79.3832];
+    const FAIRFAX_VA = [38.8462, -77.3064];
 
     const map = L.map(mapEl, {
-      center: TORONTO,
-      zoom: 4,
+      center: FAIRFAX_VA,
+      zoom: 5,
       minZoom: 2,
       maxZoom: 19,
       worldCopyJump: true,
@@ -191,7 +191,7 @@
       }
     ).addTo(map);
 
-    const pin = L.circleMarker(TORONTO, {
+    const pin = L.circleMarker(FAIRFAX_VA, {
       radius: 9,
       color: '#1f1b16',
       weight: 2,
@@ -199,7 +199,7 @@
       fillOpacity: 1,
     }).addTo(map);
 
-    pin.bindPopup('<strong>Toronto, Canada</strong>').openPopup();
+    pin.bindPopup('<strong>Fairfax, Virginia</strong><br/>Washington, D.C. Metro Area').openPopup();
 
     // Recompute size if the map becomes visible / window resizes.
     window.addEventListener('resize', () => map.invalidateSize());
