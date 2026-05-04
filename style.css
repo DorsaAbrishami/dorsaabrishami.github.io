@@ -259,9 +259,19 @@ ul { list-style: none; padding: 0; margin: 0; }
     opacity: 1;
     pointer-events: auto;
   }
-  .nav__link {
-    padding: 14px 4px;
+  .nav__links li {
+    width: 100%;
     border-bottom: 1px solid var(--border);
+  }
+  .nav__links li:last-child {
+    border-bottom: 0;
+  }
+  .nav__link {
+    display: block;
+    width: 100%;
+    padding: 16px 4px;
+    line-height: 1.2;
+    border-bottom: 0;
   }
   .nav__link.is-active::after { display: none; }
 }
